@@ -49,6 +49,10 @@ func main() {
 		json.NewEncoder(w).Encode(map[string]string{"status": "ok", "service": "gateway", "version": version})
 	})
 
+	http.HandleFunc("/api/payments/transactions", func(w http.ResponseWriter, r *http.Request) {
+		proxyRequest(w, r, paymentsURL+"/api/payments/transactions")
+	})
+
 	http.HandleFunc("/api/payments", func(w http.ResponseWriter, r *http.Request) {
 		proxyRequest(w, r, paymentsURL+"/api/payments")
 	})
