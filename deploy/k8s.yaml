@@ -5,6 +5,8 @@ metadata:
   namespace: demo-bank
   labels:
     app: gateway
+    divergedev.com/service: gateway
+    divergedev.com/role: baseline
 spec:
   replicas: 1
   selector:
@@ -14,6 +16,8 @@ spec:
     metadata:
       labels:
         app: gateway
+        divergedev.com/service: gateway
+        divergedev.com/role: baseline
     spec:
       containers:
         - name: gateway
@@ -41,6 +45,10 @@ kind: Service
 metadata:
   name: gateway
   namespace: demo-bank
+  labels:
+    app: gateway
+    divergedev.com/service: gateway
+    divergedev.com/role: baseline
 spec:
   selector:
     app: gateway
